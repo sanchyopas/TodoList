@@ -1,7 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   background-color: #302f57;
   min-height: 100vh;
-  width: 100%;
+  padding: 30px 0px 0px;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0px 15px;
+  margin: 0 auto;
 }
 
 button {
@@ -11,12 +23,13 @@ button {
 }
 
 .add-task-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 30px;
+  align-items: center;
+  gap: 10px;
   padding: 10px;
   border-radius: 50px;
   background-color: #27264d;
-  gap: 10px;
-  align-items: center;
 }
 
 .add-task-btn {
@@ -32,6 +45,41 @@ button {
   justify-content: center;
   padding: 0;
   margin: 0;
+  transition: 0.3s;
+}
+
+.add-task-btn:hover {
+  background-color: #4a93d3;
+}
+
+.close {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  transition: 0.3s;
+}
+
+.button-close:hover {
+  transform: rotate(360deg);
+}
+
+.close::before,
+.close::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  margin-top: -1px;
+  margin-left: -6px;
+  background-color: red;
+}
+
+.close::before {
+  transform: rotate(-45deg);
+}
+
+.close::after {
+  transform: rotate(45deg);
 }
 
 .add-task-btn::before,
@@ -57,7 +105,7 @@ input:focus {
 .input-add {
   padding-left: 10px;
   width: 100%;
-  min-width: 250px;
+  min-width: 200px;
   background: transparent;
   min-height: 36px;
   border: none;
@@ -66,4 +114,134 @@ input:focus {
 
 .input-add::placeholder {
   color: #ffffff7a;
+}
+
+.todolist {
+}
+
+.todolist__title {
+  font-size: 50px;
+  font-weight: 700;
+  color: #414166;
+  line-height: 150%;
+  margin-bottom: 30px;
+}
+
+.todolist__item-title {
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 150%;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.todolist__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 30px;
+}
+
+.todolist__item {
+  position: relative;
+  backdrop-filter: blur(15px);
+  padding: 35px 15px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.todolist__list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 15px 0px 0px;
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.todolist__task {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(54px);
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.todolist__task:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.todolist__task-name {
+  color: #ffffff;
+}
+
+.remove-todolist {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #ffffff;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px 8px 8px 50px;
+  transition: 0.3s;
+}
+
+.remove-todolist:hover {
+  width: 40px;
+  height: 40px;
+}
+
+.is-done {
+  opacity: 0.5;
+}
+
+.is-done::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  z-index: 12;
+  opacity: 1;
+}
+
+.input-checkbox {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ffffffc0;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.input-checkbox::before {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: green;
+  transition: 0.3s;
+}
+
+.input-checkbox:checked {
+  border-color: green;
+}
+
+.input-checkbox:checked::before {
+  opacity: 1;
 }
