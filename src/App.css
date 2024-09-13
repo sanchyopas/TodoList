@@ -1,38 +1,65 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #302f57;
   min-height: 100vh;
+  width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-task-inner {
   display: flex;
-  flex-direction: column;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #27264d;
+  gap: 10px;
+  align-items: center;
+}
+
+.add-task-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #3d7eb5;
+  position: relative;
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.add-task-btn::before,
+.add-task-btn::after {
+  /* content: ""; */
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input {
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.input-add {
+  padding-left: 10px;
+  width: 100%;
+  min-width: 250px;
+  background: transparent;
+  min-height: 36px;
+  border: none;
+  border-radius: 50px 0px 0px 50px;
 }
